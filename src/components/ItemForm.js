@@ -3,7 +3,7 @@ import { ShoppingListContext } from '../context/ShoppingListContext';
 
 
 const ItemForm = () => {
-    const { addItem, editedEl, editItem } = useContext(ShoppingListContext);
+    const { addItem, editedEl, editItem, list } = useContext(ShoppingListContext);
 
     const [title, setTitle] = useState('');
 
@@ -23,6 +23,7 @@ const ItemForm = () => {
             setTitle('');
         } else {
             editItem(title, editedEl.id);
+            console.log(list)
         }
     }
 
@@ -32,7 +33,11 @@ const ItemForm = () => {
 
     return (
         <form onSubmit={(e) => handleSubmit(e)}>
-            <input type="text" onChange={(e) => handleChange(e)} value={title} placeholder="Add new item..." />
+            <input 
+                type="text"
+                onChange={(e) => handleChange(e)}
+                value={title} placeholder="Add new item..."
+                required />
             {/* <input type="number" />
             <input type="select" /> */}
             <button type="submit">Add Item</button>

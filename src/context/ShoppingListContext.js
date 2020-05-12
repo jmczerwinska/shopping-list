@@ -4,13 +4,21 @@ import { v4 as uuid } from 'uuid';
 export const ShoppingListContext = createContext();
 
 function ShoppingListContextProvider({ children }) {
-    const [list, setList] = useState([
+    const sampleList = [
         { title: 'bread', checked: false, id: '1' },
         { title: 'butter', checked: false, id: '2' },
         { title: 'cheese', checked: false, id: '3' }
-    ]);
+    ]
+
+    const initialState = JSON.parse(localStorage.getItem('list')) || sampleList;
+
+    const [list, setList] = useState(initialState);
 
     const [editedEl, setEditedEl] = useState(null);
+
+    useEffect(() => {
+        localStorage.setItem('list', JSON.stringify(list));
+    }, [list]);
 
     const addItem = (title) => {
         setList([...list, {title, checked: false, id: uuid()}])
@@ -37,7 +45,6 @@ function ShoppingListContextProvider({ children }) {
             if (el.id === id) el.title = title;
             return el;
         });
-        // setList(newList);
         setEditedEl(null);
     }
 
