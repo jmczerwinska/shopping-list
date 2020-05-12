@@ -1,27 +1,31 @@
 import React, { useContext, useState, useEffect } from 'react';
-import {ShoppingListContext} from '../context/ShoppingListContext';
+import { ShoppingListContext } from '../context/ShoppingListContext';
 
 
 const ItemForm = () => {
-    const { addItem, editEl } = useContext(ShoppingListContext);
+    const { addItem, editedEl, editItem } = useContext(ShoppingListContext);
 
     const [title, setTitle] = useState('');
 
     useEffect(() => {
-        if (editEl !== null) {
-            setTitle(editEl.title);
-            console.log(editEl)
+        if (editedEl !== null) {
+            setTitle(editedEl.title);
+            console.log(editedEl)
         } else {
             setTitle('');
         }
-    }, [editEl]);
+    }, [editedEl]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        addItem(title);
-        setTitle('');
+        if (editedEl === null) {
+            addItem(title);
+            setTitle('');
+        } else {
+            editItem(title, editedEl.id);
+        }
     }
-    
+
     const handleChange = (e) => {
         setTitle(e.target.value);
     }
