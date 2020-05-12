@@ -10,7 +10,7 @@ const ListItem = ({ item }) => {
 
     return (
         <li>
-            <input onChange={() => handleChange(item)} type="checkbox" />
+            <input onChange={() => handleChange(item)} checked={item.checked} type="checkbox" />
             <span>{item.title}</span>
             <div>
                 <button onClick={() => findItem(item.id)}>

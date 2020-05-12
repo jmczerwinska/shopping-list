@@ -29,10 +29,11 @@ function ShoppingListContextProvider({ children }) {
     }
 
     const checkItem = (id) => {
-        list.map(el => {
+        const newList = list.map(el => {
             if (el.id === id) el.checked = !el.checked;
             return el;
         });
+        setList(newList);
     }
 
     const findItem = (id) => {
@@ -41,10 +42,11 @@ function ShoppingListContextProvider({ children }) {
     }
 
     const editItem = (title, id) => {
-        list.map(el => {
+        const newList = list.map(el => {
             if (el.id === id) el.title = title;
             return el;
         });
+        setList(newList);
         setEditedEl(null);
     }
 
