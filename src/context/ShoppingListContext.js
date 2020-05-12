@@ -10,12 +10,26 @@ function ShoppingListContextProvider({ children }) {
         { title: 'cheese', checked: false, id: '3' }
     ]);
 
+    const [editEl, setEditEl] = useState(null);
+
     const addItem = (title) => {
-        setList([...list, {title, id: uuid()}])
+        setList([...list, {title, checked: false, id: uuid()}])
     }
 
     const removeItem = (id) => {
         setList(list.filter(item => item.id !== id));
+    }
+
+    const checkItem = (id) => {
+        list.map(el => {
+            if (el.id === id) el.checked = !el.checked;
+            return el;
+        });
+    }
+
+    const findItem = (id) => {
+        const item = list.find(el => el.id === id);
+        setEditEl(item);
     }
 
     const clearAll = () => {
@@ -23,11 +37,11 @@ function ShoppingListContextProvider({ children }) {
     }
 
     const clearChecked = () => {
-
+        setList(list.filter(el => el.checked === false));
     }
 
     return (
-        <ShoppingListContext.Provider value={{ list, addItem, removeItem, clearAll }}>
+        <ShoppingListContext.Provider value={{ list, addItem, removeItem, checkItem, findItem, editEl, clearChecked, clearAll }}>
             {children}
         </ShoppingListContext.Provider>
     )

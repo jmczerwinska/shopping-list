@@ -2,14 +2,18 @@ import React, { useContext } from 'react';
 import { ShoppingListContext } from '../context/ShoppingListContext'
 
 const ListItem = ({ item }) => {
-const { removeItem } = useContext(ShoppingListContext);
+    const { removeItem, findItem, checkItem } = useContext(ShoppingListContext);
+    
+    const handleChange = (item) => {
+        checkItem(item.id);
+    }
 
     return (
         <li>
-            <input type="checkbox" />
+            <input onChange={() => handleChange(item)} type="checkbox" />
             <span>{item.title}</span>
             <div>
-                <button>
+                <button onClick={() => findItem(item.id)}>
                     Edit
                 </button>
                 <button onClick={() => removeItem(item.id)}>

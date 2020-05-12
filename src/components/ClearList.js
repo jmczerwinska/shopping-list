@@ -2,11 +2,11 @@ import React, { useContext } from 'react';
 import { ShoppingListContext } from '../context/ShoppingListContext';
 
 const ClearList = () => {
-    const { clearAll } = useContext(ShoppingListContext);
+    const { clearAll, clearChecked } = useContext(ShoppingListContext);
 
     return (
         <div>
-            <button>
+            <button onClick={clearChecked}>
                 Clear checked
             </button>
             <button onClick={clearAll}>
