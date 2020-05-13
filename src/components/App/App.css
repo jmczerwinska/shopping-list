@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Advent+Pro:wght@300;400;500&family=Montserrat&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+    width: 100vw;
+    height: 100vh;
+    background-color: #f9f8f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+}
