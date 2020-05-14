@@ -13,11 +13,15 @@ const ListItem = ({ item }) => {
         <li>
             <input onChange={() => handleChange(item)} checked={item.checked} type="checkbox" />
             <span>{item.title}</span>
-            <ButtonGroup>
+            <ButtonGroup border>
                 <InvertButton onClick={() => findItem(item.id)} icon>
                     <Icon className="fas fa-pencil-alt"></Icon>
                 </InvertButton>
-                <InvertButton icon onClick={() => removeItem(item.id)}>
+                <InvertButton 
+                    secondary
+                    icon
+                    onClick={() => removeItem(item.id)}
+                >
                     <Icon className="fas fa-trash-alt"></Icon>
                 </InvertButton>
             </ButtonGroup>

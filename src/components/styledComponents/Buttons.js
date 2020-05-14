@@ -1,6 +1,7 @@
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 
 const handleSecondary = ({ theme, secondary }) => (secondary ? theme.colors.secondary : theme.colors.primary);
+const handleHover = ({ theme, secondary }) => (secondary ? theme.colors.secondaryDark : theme.colors.primaryDark);
 
 export const Button = styled.button`
   cursor: pointer;
@@ -11,36 +12,48 @@ export const Button = styled.button`
   border-radius: 4px;
   margin: 0 0.5em;
   padding: ${({ icon }) => (icon ? '0.25em' : '0.25em 1em')};
-transition: 0.2s all ease - out;
+  transition: 0.2s all ease - out;
+  
+  ${({ icon }) => (icon && css`
+    i {
+      color: ${props => handleSecondary(props)};
+    }
+  `)}
 
   :hover {
-    background-color: ${ ({ theme, secondary }) => (secondary ? theme.colors.secondaryDark : theme.colors.primaryDark)};
-}
+    background-color: ${props => handleHover(props)};
+    border-color: ${props => handleHover(props)};
+  }
 `;
 
 export const InvertButton = styled(Button)`
-background-color: transparent;
-color: ${ props => handleSecondary(props)};
-  :hover {
-  background-color: ${ props => handleSecondary(props)};
-  i {
-    color: ${({ theme }) => theme.colors.white};
+  background-color: transparent;
+  color: ${ props => handleSecondary(props)};
+    :hover {
+    background-color: ${ props => handleSecondary(props)};
+    i {
+      color: ${({ theme }) => theme.colors.white};
+    }
   }
-}
 `;
 
 export const ButtonGroup = styled.div`
-border-radius: 3px;
-border: 2px solid #278180;
-width: fit-content;
-button {
-  border-radius: 0;
-  margin: 0;
-  border: none;
-  border-right: solid 2px #278180;
-    &:last-child {
-    border-right: none;
+  border-radius: 3px;
+  width: fit-content;
+  button {
+    border-radius: 0;
+    margin: 0;
+    border: none;
   }
-}
+   
+  ${({ border }) => (border && css`
+    border: 2px solid ${props => handleSecondary(props)};
+    button {
+      border-right: solid 2px ${props => handleSecondary(props)};
+      &:last-child {
+      border-right: none;
+    }
+  `)
+  };
 `;
 
