@@ -10,14 +10,14 @@ const GlobalStyle = createGlobalStyle`
 
   body {
   font-family: ${({ theme }) => theme.fonts.main};
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.black};
   }
 `;
 
 const StyledWrapper = styled.div`
   width: 100vw;
   height: 100vh;
-  color: ${({ theme }) => theme.colors.black};
+  background: linear-gradient(135deg, rgba(242,246,248,1) 0%, rgba(216,225,231,1) 34%, rgba(181,198,208,1) 54%, rgba(207,218,225,1) 81%, rgba(216,225,231,1) 90%, rgba(177,196,206,1) 100%);
   display: flex;
   justify-content: center;
   align-items: center;
