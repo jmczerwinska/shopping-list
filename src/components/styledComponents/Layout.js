@@ -1,30 +1,44 @@
-import styled from 'styled-components';
-import { colors } from './variable';
+import React from 'react';
+import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
+import theme from './theme';
 
-const { primary, white, black } = colors;
+const GlobalStyle = createGlobalStyle`
+  * {
+    margin: 0;
+    padding: 0;
+  }
 
-export const Card = styled.div`
-  height: 95vh;
-  width: 95vw;
-  max-width: 500px;
-  background-color: ${white};
-  border-radius: 4px;
-  -webkit-box-shadow: 6px 4px 33px -9px ${black};
-  -moz-box-shadow: 6px 4px 33px -9px ${black};
-  box-shadow: 6px 4px 33px -9px ${black};
-  overflow-y: scroll;
-`;
+  body {
+  font-family: ${({ theme }) => theme.fonts.main};
+  color: ${({ theme }) => theme.colors.white};
+  }
 
-export const Header = styled.div`
-  text-align: center;
-  font-family: 'Advent Pro', sans-serif;
-  color: ${primary};
-  padding: 0.3rem;
-  border-bottom: 1px solid grey;
-
-  h1 {
-    margin-top: 0.5rem;
-    display: inline-block;
-    font-weight: 500;
+  *, *::before, *::after {
+    box-sizing: border-box;
   }
 `;
+
+const StyledWrapper = styled.div`
+  width: 100vw;
+  height: 100vh;
+  /* background-color: ${({ theme }) => theme.colors.white}; */
+  color: ${({ theme }) => theme.colors.black};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Layout = ({ children }) => {
+  return (
+    <ThemeProvider theme={theme}>
+      <>
+        <GlobalStyle />
+        <StyledWrapper>
+          {children}
+        </StyledWrapper>
+      </>
+    </ThemeProvider>
+  )
+}
+
+export default Layout;
