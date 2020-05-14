@@ -1,27 +1,26 @@
 import React from 'react';
+
+import ShoppingListProvider from '../../context/ShoppingListContext';
+
 import Header from '../Header';
 import ShoppingList from '../ShoppingList';
 import ItemForm from '../ItemForm';
 import ClearList from '../ClearList';
-
-import ShoppingListProvider from '../../context/ShoppingListContext';
-
-import { Card } from '../styledComponents/Layout';
-import './App.css';
+import { Layout, Card } from '../styledComponents';
 
 function App() {
 
   return (
-    <div className="App">
-      <ShoppingListProvider>
-        <Card>
-          <Header />
-          <ItemForm />
-          <ShoppingList />
-          <ClearList />
-        </Card>
-      </ShoppingListProvider>
-    </div>
+      <Layout>
+        <ShoppingListProvider>
+          <Card>
+            <Header />
+            <ItemForm />
+            <ShoppingList />
+            <ClearList />
+          </Card>
+        </ShoppingListProvider>
+      </Layout>
   );
 }
 
