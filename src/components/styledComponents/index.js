@@ -3,6 +3,8 @@ import Icon from './Icon';
 import Card from './Card';
 import AppHeader from './AppHeader';
 import Layout from './Layout';
+import Input from './Input';
+import Form from './Form';
 
 export {
     Button,
@@ -11,5 +13,7 @@ export {
     Icon,
     Card,
     AppHeader,
-    Layout
-};
+    Layout,
+    Input,
+    Form
+}
