@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { ShoppingListContext } from '../context/ShoppingListContext';
-import { Button } from './styledComponents';
+import { Form, Button, Input } from './styledComponents';
 
 
 const ItemForm = () => {
@@ -33,15 +33,14 @@ const ItemForm = () => {
     }
 
     return (
-        <form onSubmit={(e) => handleSubmit(e)}>
-            <input 
+        <Form onSubmit={(e) => handleSubmit(e)}>
+            <Input 
                 type="text"
                 onChange={(e) => handleChange(e)}
                 value={title} placeholder="Add new item..."
                 required />
-            <input type="number" placeholder="Quantity" />
-            <Button type="submit">Add Item</Button>
-        </form>
+            <Button disabled={title ? false : true} type="submit">Add Item</Button>
+        </Form>
     )
 }
 

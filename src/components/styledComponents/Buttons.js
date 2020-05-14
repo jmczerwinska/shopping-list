@@ -10,7 +10,7 @@ export const Button = styled.button`
   color: ${({ theme }) => theme.colors.white};
   border: 2px solid ${props => handleSecondary(props)};
   border-radius: 4px;
-  margin: 0 0.5em;
+  margin: 0.5em;
   padding: ${({ icon }) => (icon ? '0.25em' : '0.25em 1em')};
   transition: 0.2s all ease - out;
   
@@ -23,6 +23,12 @@ export const Button = styled.button`
   :hover {
     background-color: ${props => handleHover(props)};
     border-color: ${props => handleHover(props)};
+  }
+
+  :disabled {
+    cursor: default;
+    background-color: ${({theme}) => theme.colors.grey};
+    border-color: ${({ theme }) => theme.colors.grey};
   }
 `;
 
@@ -52,8 +58,7 @@ export const ButtonGroup = styled.div`
       border-right: solid 2px ${props => handleSecondary(props)};
       &:last-child {
       border-right: none;
-    }
-  `)
-  };
+    }`)
+  }
 `;
 
