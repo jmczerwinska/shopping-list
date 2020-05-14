@@ -12,16 +12,11 @@ const GlobalStyle = createGlobalStyle`
   font-family: ${({ theme }) => theme.fonts.main};
   color: ${({ theme }) => theme.colors.white};
   }
-
-  *, *::before, *::after {
-    box-sizing: border-box;
-  }
 `;
 
 const StyledWrapper = styled.div`
   width: 100vw;
   height: 100vh;
-  /* background-color: ${({ theme }) => theme.colors.white}; */
   color: ${({ theme }) => theme.colors.black};
   display: flex;
   justify-content: center;
