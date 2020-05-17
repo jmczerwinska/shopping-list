@@ -1,12 +1,12 @@
 import React from 'react';
 
-import ShoppingListProvider from '../../context/ShoppingListContext';
+import ShoppingListProvider from '../context/ShoppingListContext';
 
-import Header from '../Header';
-import ShoppingList from '../ShoppingList';
-import ItemForm from '../ItemForm';
-import ClearList from '../ClearList';
-import { Layout, Card } from '../styledComponents';
+import Header from './Header';
+import ShoppingList from './ShoppingList';
+import ItemForm from './ItemForm';
+import ClearList from './ClearList';
+import { Layout, Card } from './styledComponents';
 
 function App() {
 
