@@ -1,19 +1,21 @@
 import React, { useContext } from 'react';
 import { ShoppingListContext } from '../context/ShoppingListContext';
-import { Button } from './styledComponents';
+import { Button, ButtonGroup, Footer } from './styledComponents';
 
 const ClearList = () => {
     const { clearAll, clearChecked } = useContext(ShoppingListContext);
 
     return (
-        <div>
-            <Button secondary onClick={clearChecked}>
-                Clear checked
-            </Button>
-            <Button secondary onClick={clearAll}>
-                Clear all
-            </Button>
-        </div>
+        <Footer>
+            <ButtonGroup choose>
+                <Button secondary onClick={clearAll}>
+                    Clear All
+                </Button>
+                <Button secondary onClick={clearChecked}>
+                    Checked
+                </Button>
+            </ButtonGroup>
+        </Footer >
 
     )
 }
