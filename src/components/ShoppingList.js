@@ -1,22 +1,24 @@
 import React, { useContext } from 'react';
 import { ShoppingListContext } from '../context/ShoppingListContext';
 import ListItem from './ListItem';
+import {List, ListWrapper} from './styledComponents';
 
 const ShoppingList = () => {
     const { list } = useContext(ShoppingListContext);
     return (
-        <div>
+        <ListWrapper>
             {list.length > 0
                 ? (
-                    <ul>
-                        {list.map(item => <ListItem key={item.id} item={item} />)}
-                    </ul>
+                    <List>
+                        {list.map(item => !item.checked && <ListItem key={item.id} item={item} />)}
+                        {list.map(item => item.checked && <ListItem key={item.id} item={item}  edit="disabled" />)}
+                    </List>
                 )
                 : (
                     <h4>Shopping list is empty!</h4>
                 )
             }
-        </div>
+        </ListWrapper>
     )        
 }
 
