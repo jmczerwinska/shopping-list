@@ -5,7 +5,6 @@ const AppHeader = styled.div`
   font-family: 'Advent Pro', sans-serif;
   color: ${({ theme }) => theme.colors.primary};
   padding: 0.3rem;
-  border-bottom: 1px solid grey;
 
   h1 {
     margin-top: 0.5rem;
