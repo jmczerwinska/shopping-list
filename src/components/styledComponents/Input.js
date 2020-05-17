@@ -7,7 +7,7 @@ const Input = styled.input`
   border: 1.2px solid ${({ theme }) => theme.colors.primary};
   border-radius: 4px;
   margin: 0.5em;
-  padding: 0.32em 1em;
+  padding: 0.32em 0.5em;
   transition: 0.2s all ease-out;
   outline: none;
   box-sizing: content-box;
