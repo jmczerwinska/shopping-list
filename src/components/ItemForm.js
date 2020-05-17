@@ -39,7 +39,14 @@ const ItemForm = () => {
                 onChange={(e) => handleChange(e)}
                 value={title} placeholder="Add new item..."
                 required />
-            <Button disabled={title ? false : true} type="submit">Add Item</Button>
+            <Button disabled={title ? false : true} type="submit">
+                {
+                    !editedEl 
+                    ?'Add'
+                    : "Edit"
+                }
+                
+                </Button>
         </Form>
     )
 }
