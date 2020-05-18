@@ -81,7 +81,7 @@ const toggleCheckedStyle = css`
     ${Slider} {
       transform: translateX(14px); 
       @media screen and (max-width: 480px){
-        transform: translateX(12px);
+        transform: translateX(12.5px);
       }   
     }
   }
