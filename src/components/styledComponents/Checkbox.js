@@ -14,11 +14,11 @@ const CustomCheckbox = styled.i`
 
 const Slider = styled.i`
   position: absolute;
-  top: -1px;
-  left: -1px;
+  top: 0;
+  left: 0;
   font-size: 0.7em;
   text-align: center;
-  line-height: 14px;
+  line-height: 15px;
   padding: 0.12em;
   font-weight: 900;
   height: 14px;
@@ -32,6 +32,8 @@ const Slider = styled.i`
     width: 12px;
     line-height: 12px;
     font-size: 0.5rem;
+    top: -1px;
+    left: -1px;
   }
 `;
 
