@@ -10,15 +10,17 @@ function ShoppingListContextProvider({ children }) {
         { title: 'cheese', checked: false, id: '3' }
     ]
 
-    const initialState = JSON.parse(localStorage.getItem('list')) || sampleList;
+    const storage = window.localStorage;
+
+    const initialState = JSON.parse(storage.getItem('list')) || sampleList;
 
     const [list, setList] = useState(initialState);
 
     const [editedEl, setEditedEl] = useState(null);
 
     useEffect(() => {
-        localStorage.setItem('list', JSON.stringify(list));
-    }, [list]);
+        storage.setItem('list', JSON.stringify(list));
+    }, [storage, list]);
 
     const addItem = (title) => {
         setList([...list, {title, checked: false, id: uuid()}])
