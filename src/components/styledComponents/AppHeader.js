@@ -10,6 +10,9 @@ const AppHeader = styled.div`
     margin-top: 0.5rem;
     display: inline-block;
     font-weight: 500;
+    @media screen and (max-width: 480px) {
+    font-size: 1.25rem;
+    }
   }
   
   ${({icon}) => icon && css`
