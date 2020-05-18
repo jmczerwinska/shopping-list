@@ -38,7 +38,7 @@ export const InvertButton = styled(Button)`
   :hover {
     background-color: ${ props => handleSecondary(props)};
     i {
-      color: ${({ theme }) => theme.text};
+      color: ${({ theme }) => theme.bg};
     }
   }
   :disabled {

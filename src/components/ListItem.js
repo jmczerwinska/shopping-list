@@ -16,7 +16,7 @@ const ListItem = ({ item, edit }) => {
                 label={item.title}
                 onChange={() => handleChange(item)}
                 checked={item.checked}
-                type="checkbox" />
+                basic />
             <ButtonGroup >
                 <InvertButton 
                     disabled={edit === 'disabled' ? true : false}
