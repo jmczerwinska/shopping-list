@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
-import theme from './theme';
+import {light, dark} from './theme';
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -9,15 +9,15 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-  font-family: ${({ theme }) => theme.fonts.main};
-  color: ${({ theme }) => theme.colors.black};
+  font-family: 'Montserrat', sans- serif;
+  color: ${({ theme }) => theme.text};
   }
 `;
 
 const StyledWrapper = styled.div`
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(135deg, rgba(242,246,248,1) 0%, rgba(216,225,231,0.89) 22%, rgba(181,198,208,0.89) 51%, rgba(216,225,231,0.89) 56%, rgba(177,196,206,0.89) 100%);
+  background: ${({ theme })=> theme.gradient};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,10 +29,11 @@ const StyledWrapper = styled.div`
 
 const Layout = ({ children }) => {
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={light}>
       <>
         <GlobalStyle />
         <StyledWrapper>
+          <button>theme</button>
           {children}
         </StyledWrapper>
       </>

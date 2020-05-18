@@ -3,8 +3,8 @@ import styled from 'styled-components';
 const Input = styled.input`
   background: transparent;
   font-size: 1em;
-  color: ${({ theme }) => theme.colors.black};
-  border: 1.2px solid ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.text};
+  border: 1.2px solid ${({ theme }) => theme.primary};
   border-radius: 4px;
   margin: 0.5em;
   padding: 0.32em 0.5em;
@@ -13,7 +13,7 @@ const Input = styled.input`
   box-sizing: content-box;
 
   :focus, :hover {
-    border-color: ${({ theme }) => theme.colors.active};
+    border-color: ${({ theme }) => theme.active};
     
   }
 `;

@@ -4,9 +4,9 @@ const Card = styled.div`
   height: 97%;
   width: 97%;
   max-width: 600px;
-  background-color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) => theme.bg};
   border-radius: 4px;
-  box-shadow: 6px 4px 33px -9px ${({ theme }) => theme.colors.black};
+  box-shadow: 6px 4px 33px -9px ${({ theme }) => theme.text};
   display: flex;
   flex-direction: column;
 
@@ -15,8 +15,8 @@ const Card = styled.div`
   }
 
   h4 {
-    font-family: ${({ theme }) => theme.fonts.title};
-    color: ${({ theme }) => theme.colors.active};
+    font-family: 'Advent Pro', sans-serif;
+    color: ${({ theme }) => theme.active};
     text-align: center;
     font-size: 1.25em;
     margin: 2em 0;

@@ -6,8 +6,8 @@ const CustomCheckbox = styled.i`
   line-height: 1.15em;
   padding: 2px;
   margin-right: 0.7em;
-  color: ${({ theme }) => theme.colors.white};
-  border: solid 2px ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.bg};
+  border: solid 2px ${({ theme }) => theme.primary};
   border-radius: 4px;
 `;
 
@@ -26,10 +26,10 @@ const Checkbox = styled.input.attrs(({checkId}) => ({
   position: absolute;
   opacity: 0;
   &:checked + ${Label} {
-    color: ${({ theme }) => theme.colors.grey};
+    color: ${({ theme }) => theme.grey};
     text-decoration: line-through;
     ${CustomCheckbox} {
-    background-color: ${({ theme }) => theme.colors.primary};    
+    background-color: ${({ theme }) => theme.primary};    
     }
   }
 `;

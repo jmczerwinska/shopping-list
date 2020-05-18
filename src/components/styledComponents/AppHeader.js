@@ -3,7 +3,7 @@ import styled, {css} from 'styled-components';
 const AppHeader = styled.div`
   text-align: center;
   font-family: 'Advent Pro', sans-serif;
-  color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.primary};
   padding: 0.3rem;
 
   h1 {
