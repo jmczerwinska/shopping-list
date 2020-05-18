@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Form = styled.form`
-  padding: 0.3em;
+  padding: 0.7em;
   margin-bottom: 0.7em;
   display: flex;
 
@@ -11,6 +11,7 @@ const Form = styled.form`
   }
 
   @media screen and (max-width: 360px) {
+    padding: 0.3em;
     button {
       padding: 0.5em;
       margin-right: 0;
