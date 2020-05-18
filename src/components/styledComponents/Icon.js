@@ -12,6 +12,17 @@ const Icon = styled.i`
     border: 3px solid ${({ theme }) => theme.active};
     border-radius: 50%;
   `)}
+
+  @media screen and (max-width: 480px) {
+    font-size: 1.25rem;
+     ${({ circular }) => (circular && css`
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    border-width: 2px;
+    `)}
+    
+  }
 `;
 
 export default Icon;
