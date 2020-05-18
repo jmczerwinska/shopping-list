@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 const Card = styled.div`
+  position: relative;
   height: 97%;
   width: 97%;
   max-width: 600px;

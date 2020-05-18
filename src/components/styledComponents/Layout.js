@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
-import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
-import {light, dark} from './theme';
+import React from 'react';
+import styled, { createGlobalStyle } from 'styled-components';
+
 
 const GlobalStyle = createGlobalStyle`
+  
+
   * {
     margin: 0;
     padding: 0;
+    transition: all 0.25s linear;
   }
 
   body {
@@ -29,15 +32,12 @@ const StyledWrapper = styled.div`
 
 const Layout = ({ children }) => {
   return (
-    <ThemeProvider theme={light}>
       <>
         <GlobalStyle />
         <StyledWrapper>
-          <button>theme</button>
           {children}
         </StyledWrapper>
       </>
-    </ThemeProvider>
   )
 }
 
