@@ -11,9 +11,17 @@ const GlobalStyle = createGlobalStyle`
     transition: all 0.25s linear;
   }
 
+ 
+
   body {
   font-family: 'Montserrat', sans- serif;
   color: ${({ theme }) => theme.text};
+  height: 100%;
+  overflow: hidden;
+  @media screen and (max-width: 600px) and (orientation: landscape){
+    height: auto;
+    overflow: visible;
+  }
   }
 `;
 
