@@ -20,7 +20,7 @@ export const ListWrapper = styled.div`
   height: 50px;
   }
 
-  @media screen and (max-device-width: 600px) and (orientation: landscape) {
+  @media screen and (max-device-width: 799px) and (orientation: landscape) {
     overflow: visible;
   }
 `;

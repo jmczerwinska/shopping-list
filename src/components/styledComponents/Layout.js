@@ -18,8 +18,8 @@ const GlobalStyle = createGlobalStyle`
   color: ${({ theme }) => theme.text};
   height: 100%;
   overflow: hidden;
-  @media screen and (max-width: 600px) and (orientation: landscape){
-    height: auto;
+  @media screen and (max-width: 799px) and (orientation: landscape){
+    min-height: auto;
     overflow: visible;
   }
   }
@@ -35,6 +35,7 @@ const StyledWrapper = styled.div`
 
   @media screen and (max-device-width: 799px) and (orientation: landscape) {
     height: auto;
+    min-height: 100vh;
   }
 `;
 
