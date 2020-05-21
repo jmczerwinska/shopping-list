@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 const Icon = styled.i`
-  font-size: 2em;
+  font-size: ${({size}) => size === 'big'? '2em': '1em'};
   color: ${({ theme }) => theme.primary};
   margin: 5px;
   text-align: center;
