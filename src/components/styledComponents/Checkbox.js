@@ -10,6 +10,7 @@ const CustomCheckbox = styled.i`
   color: ${({ theme }) => theme.bg};
   border: solid 2px ${({ theme }) => theme.primary};
   border-radius: 4px;
+  transition: background-color 0.25s ease-in-out;
 `;
 
 const Slider = styled.i`
@@ -69,7 +70,7 @@ const Label = styled.label.attrs(({ checkId }) => ({
 const basicCheckedStyle = css`
   :checked + ${Label} {
     color: ${({ theme }) => theme.grey};
-    text-decoration: line-through;
+    /* text-decoration: line-through; */
     ${CustomCheckbox} {
     background-color: ${({ theme }) => theme.primary};    
     }

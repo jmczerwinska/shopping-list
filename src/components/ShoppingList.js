@@ -10,8 +10,9 @@ const ShoppingList = () => {
             {list.length > 0
                 ? (
                     <List>
-                        {list.map(item => !item.checked && <ListItem key={item.id} item={item} />)}
-                        {list.map(item => item.checked && <ListItem key={item.id} item={item}  edit="disabled" />)}
+                        {/* {list.map(item => !item.checked && <ListItem key={item.id} item={item} />)}
+                        {list.map(item => item.checked && <ListItem key={item.id} item={item}  edit="disabled" />)} */}
+                        {list.map(item =>  <ListItem key={item.id} item={item}  />)}
                     </List>
                 )
                 : (

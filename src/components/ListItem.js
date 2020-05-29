@@ -21,15 +21,13 @@ const ListItem = ({ item, edit }) => {
                 <InvertButton 
                     disabled={edit === 'disabled' ? true : false}
                     onClick={() => findItem(item.id)}
-                    icon
-                >
+                    icon>
                     <Icon className="fas fa-pencil-alt"></Icon>
                 </InvertButton>
                 <InvertButton 
                     secondary
                     icon
-                    onClick={() => removeItem(item.id)}
-                >
+                    onClick={() => removeItem(item.id)}>
                     <Icon className="fas fa-trash-alt"></Icon>
                 </InvertButton>
             </ButtonGroup>
