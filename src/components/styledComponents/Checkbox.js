@@ -7,9 +7,10 @@ const CustomCheckbox = styled.i`
   line-height: 1.15em;
   padding: 2px;
   margin-right: 0.7em;
-  color: ${({ theme }) => theme.bg};
+  color: transparent;
   border: solid 2px ${({ theme }) => theme.primary};
   border-radius: 4px;
+  transition: background-color 0.25s ease-in-out;
 `;
 
 const Slider = styled.i`
@@ -18,7 +19,6 @@ const Slider = styled.i`
   left: 0;
   font-size: 0.7em;
   text-align: center;
-  line-height: 15px;
   padding: 0.12em;
   font-weight: 900;
   height: 14px;
@@ -27,6 +27,8 @@ const Slider = styled.i`
   background-color: ${({ theme }) => theme.bg};
   color: ${({ theme }) => theme.secondary};
   transition: all .3s linear;
+  line-height: 14px;
+  
   @media screen and (max-width: 480px) {
     height: 12px;
     width: 12px;
@@ -71,7 +73,8 @@ const basicCheckedStyle = css`
     color: ${({ theme }) => theme.grey};
     text-decoration: line-through;
     ${CustomCheckbox} {
-    background-color: ${({ theme }) => theme.primary};    
+      color: ${({ theme }) => theme.bg};
+      background-color: ${({ theme }) => theme.primary};    
     }
   }
 `;
