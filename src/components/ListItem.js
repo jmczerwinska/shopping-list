@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { ShoppingListContext } from '../context/ShoppingListContext';
 import { InvertButton, ButtonGroup, Icon, ListEl, StyledCheckbox } from './styledComponents';
 
-const ListItem = ({ item, edit }) => {
+const ListItem = ({ item, edit, className }) => {
     const { removeItem, findItem, checkItem } = useContext(ShoppingListContext);
     
     const handleChange = (item) => {
@@ -10,7 +10,7 @@ const ListItem = ({ item, edit }) => {
     }
 
     return (
-        <ListEl >
+        <ListEl className={className}>
             <StyledCheckbox
                 checkId={item.id}
                 label={item.title}
