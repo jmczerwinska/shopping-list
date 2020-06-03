@@ -6,6 +6,7 @@ import {ReactSortable} from 'react-sortablejs';
 
 const ShoppingList = () => {
     const { list, setList } = useContext(ShoppingListContext);
+
     return (
         <ListWrapper>
             {list.length > 0
