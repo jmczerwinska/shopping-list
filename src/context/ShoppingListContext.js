@@ -25,7 +25,7 @@ function ShoppingListContextProvider({ children }) {
     }, [storage, list]);
 
     const addItem = (title) => {
-        setList([...list, {title, checked: false, filtered: false, id: uuid()}])
+        setList([{title, checked: false, filtered: false, id: uuid()}, ...list])
     }
 
     const removeItem = (id) => {
