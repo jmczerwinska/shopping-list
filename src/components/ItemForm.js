@@ -1,10 +1,10 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { ShoppingListContext } from '../context/ShoppingListContext';
+import { ShoppingListContext } from '../context/ShoppingListContext2';
 import { Form, Button, Input } from './styledComponents';
 
 
 const ItemForm = () => {
-    const { addItem, editedEl, editItem, list } = useContext(ShoppingListContext);
+    const { addItem, editItem,editedEl } = useContext(ShoppingListContext);
 
     const [title, setTitle] = useState('');
 
@@ -24,7 +24,6 @@ const ItemForm = () => {
             setTitle('');
         } else {
             editItem(title, editedEl.id);
-            console.log(list)
         }
     }
 
@@ -40,12 +39,9 @@ const ItemForm = () => {
                 value={title} placeholder="Add new item..."
                 required />
             <Button disabled={title ? false : true} type="submit">
-                {
-                    !editedEl 
+                {!editedEl 
                     ?'Add'
-                    : "Edit"
-                }
-                
+                    : "Edit"}
                 </Button>
         </Form>
     )

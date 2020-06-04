@@ -1,18 +1,19 @@
 import React, { useContext } from 'react';
-import { ShoppingListContext } from '../context/ShoppingListContext';
+import { ShoppingListContext } from '../context/ShoppingListContext2';
 import ListItem from './ListItem';
 import {List, ListWrapper} from './styledComponents';
-import {ReactSortable} from 'react-sortablejs';
+// import {ReactSortable} from 'react-sortablejs';
+import FlipMove from 'react-flip'
 
 const ShoppingList = () => {
-    const { list, setList } = useContext(ShoppingListContext);
+    const { bought, toBuy } = useContext(ShoppingListContext);
 
     return (
         <ListWrapper>
-            {list.length > 0
+            {bought.length > 0 || toBuy.length > 0
                 ? (
                     <List>
-                        <ReactSortable 
+                        {/* <ReactSortable 
                             list={list}
                             setList={setList}
                             animation={200}
@@ -22,7 +23,11 @@ const ShoppingList = () => {
                             filter=".ignore-elements"
                             >
                             {list.map(item =>  <ListItem key={item.id} item={item}  />)}   
-                        </ReactSortable>
+                        </ReactSortable> */}
+                        {
+                            toBuy.map(item => <ListItem key={item.id} item={item} />)}
+                        {bought.map(item => <ListItem key={item.id} item={item} checked edit="disabled" />)
+                        }
                         
                     </List>
                 )

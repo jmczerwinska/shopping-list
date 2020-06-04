@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
-import { ShoppingListContext } from '../context/ShoppingListContext';
+import { ShoppingListContext } from '../context/ShoppingListContext2';
 import { InvertButton, ButtonGroup, Icon, ListEl, StyledCheckbox } from './styledComponents';
 
-const ListItem = ({ item, edit, className }) => {
-    const { removeItem, findItem, checkItem } = useContext(ShoppingListContext);
+const ListItem = ({ item, edit, className, checked }) => {
+    const { checkItem, removeItem, updateEditedEl } = useContext(ShoppingListContext);
     
     const handleChange = (item) => {
         checkItem(item.id);
@@ -15,19 +15,20 @@ const ListItem = ({ item, edit, className }) => {
                 checkId={item.id}
                 label={item.title}
                 onChange={() => handleChange(item)}
-                checked={item.checked}
+                checked={checked}
                 basic />
             <ButtonGroup >
                 <InvertButton 
                     disabled={edit === 'disabled' ? true : false}
-                    onClick={() => findItem(item.id)}
+                    onClick={() => updateEditedEl(item.id)}
                     icon>
                     <Icon className="fas fa-pencil-alt"></Icon>
                 </InvertButton>
                 <InvertButton 
                     secondary
                     icon
-                    onClick={() => removeItem(item.id)}>
+                    onClick={() => removeItem(item.id)}
+                    >
                     <Icon className="fas fa-trash-alt"></Icon>
                 </InvertButton>
             </ButtonGroup>

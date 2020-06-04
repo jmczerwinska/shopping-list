@@ -2,7 +2,7 @@ import React from 'react';
 import useTheme from '../hooks/useTheme';
 import { light, dark } from './styledComponents/theme';
 
-import ShoppingListProvider from '../context/ShoppingListContext';
+import ShoppingListProvider from '../context/ShoppingListContext2';
 import { ThemeProvider } from 'styled-components';
 
 import Header from './Header';
