@@ -79,6 +79,7 @@ function ShoppingListContextProvider({ children }) {
     return (
         <ShoppingListContext.Provider value={{
             toBuy,
+            setToBuy,
             bought,
             addItem,
             removeItem, 

@@ -28,9 +28,7 @@ export const ListWrapper = styled.div`
 export const List = styled.ul` 
   list-style: none;
   font-size: 1.15em;
-  .ghost {
-    background-color: ${({ theme }) => theme.grey};
-  }
+  
 `;
 
 export const ListEl = styled.li`
@@ -38,6 +36,10 @@ export const ListEl = styled.li`
   justify-content: space-between;
   align-items: center;
   margin: 0.7em 1.25em;
+
+  &.dragging {
+    opacity: 0;
+  }
   
   @media screen and (max-device-width: 480px) {
     margin-left: 0;
