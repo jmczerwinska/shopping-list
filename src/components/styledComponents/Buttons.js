@@ -20,6 +20,11 @@ export const Button = styled.button`
     }
   `)}
 
+  :focus {
+    outline: none;
+    border-color: ${({ theme }) => theme.active};
+  }
+
   :hover {
     background-color: ${props => handleHover(props)};
     border-color: ${props => handleHover(props)};
@@ -85,7 +90,7 @@ export const ButtonGroup = styled.div`
           pointer-events: none;
           cursor: default;
         }
-      }  
+      }
     }
   `)}
 `;

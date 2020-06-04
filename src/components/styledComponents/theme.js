@@ -15,7 +15,7 @@ const dark = {
     secondary: '#E6CA51',
     primaryDark: '#6ab7b0',
     secondaryDark: '#c5ae4e',
-    active: '#d1ebe9',
+    active: '#ffffff',
     bg: '#34353a',
     text: '#fff8f0',
     grey: '#707275',

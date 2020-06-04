@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import { ShoppingListContext } from '../context/ShoppingListContext2';
 import ListItem from './ListItem';
-import {List, ListWrapper} from './styledComponents';
+import { List, ListWrapper } from './styledComponents';
 // import {ReactSortable} from 'react-sortablejs';
-import FlipMove from 'react-flip'
+
 
 const ShoppingList = () => {
     const { bought, toBuy } = useContext(ShoppingListContext);
@@ -24,11 +24,10 @@ const ShoppingList = () => {
                             >
                             {list.map(item =>  <ListItem key={item.id} item={item}  />)}   
                         </ReactSortable> */}
-                        {
-                            toBuy.map(item => <ListItem key={item.id} item={item} />)}
+                        {toBuy.map(item => <ListItem key={item.id} item={item} />)}
                         {bought.map(item => <ListItem key={item.id} item={item} checked edit="disabled" />)
                         }
-                        
+
                     </List>
                 )
                 : (
@@ -36,7 +35,7 @@ const ShoppingList = () => {
                 )
             }
         </ListWrapper>
-    )        
+    )
 }
 
 export default ShoppingList;
