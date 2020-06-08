@@ -1,8 +1,10 @@
-import React, { useContext} from 'react';
+import React, { useContext, useState,useEffect } from 'react';
 import styled, { css, ThemeContext } from 'styled-components';
 import { light } from './theme';
 
-const CustomCheckbox = styled.i`
+export const CustomCheckbox = styled.i.attrs(({ checkId }) => ({
+  className: "fas fa-check"
+}))`
   font-size:0.9em;
   line-height: 1.15em;
   padding: 2px;
@@ -11,6 +13,14 @@ const CustomCheckbox = styled.i`
   border: solid 2px ${({ theme }) => theme.primary};
   border-radius: 4px;
   transition: background-color 0.25s ease-in-out;
+  ${({checked})=> checked && css`
+      color: ${({ theme }) => theme.bg};
+      background-color: ${({ theme }) => theme.primary};  
+      & + p {
+        color: ${({ theme }) => theme.grey};
+    text-decoration: line-through;
+    
+  }`}
 `;
 
 const Slider = styled.i`
@@ -102,19 +112,17 @@ const Checkbox = styled.input.attrs(({ checkId }) => ({
   ${({ toggle }) => toggle && toggleCheckedStyle} 
 `;
 
-const StyledCheckbox = ({ label, ...props }) => {
-const theme = useContext(ThemeContext);
+ export const StyledCheckbox = ({ label, ...props }) => {
+  const theme = useContext(ThemeContext);
 
   return (
     <div>
       <Checkbox {...props} />
       <Label {...props}>
-        {props.basic && <CustomCheckbox className="fas fa-check" />}
+        {props.basic && <CustomCheckbox />}
         {props.toggle && <Slider className={theme === light ? 'fas fa-sun' : 'fas fa-moon'} />} 
         {label}
       </Label>
     </div>
   )
 }
-
-export default StyledCheckbox;

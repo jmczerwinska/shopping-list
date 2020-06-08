@@ -5,9 +5,9 @@ export const ShoppingListContext = createContext();
 
 function ShoppingListContextProvider({ children }) {
     const sampleList = [
-        { title: 'bread', id: '1' },
-        { title: 'butter', id: '2' },
-        { title: 'cheese', id: '3' }
+        { title: 'bread', checked: false, id: '1' },
+        { title: 'butter', checked: false, id: '2' },
+        { title: 'cheese', checked: false, id: '3' }
     ]
 
     const storage = window.localStorage;
@@ -28,7 +28,7 @@ function ShoppingListContextProvider({ children }) {
     }, [storage, toBuy, bought]);
 
     const addItem = (title) => {
-        setToBuy([{title, id: uuid()}, ...toBuy])
+        setToBuy([{title, checked: false, id: uuid()}, ...toBuy])
     }
 
     const removeItem = (id) => {
@@ -41,10 +41,12 @@ function ShoppingListContextProvider({ children }) {
     const checkItem = (id) => {
         let item = findItem(id);
         if (item !== undefined) {
+            item.checked = !item.checked;
             setBought([item, ...bought]);
             setToBuy(toBuy.filter(el=> el.id !== id));   
         } else {
             item = bought.find(el => el.id === id);
+            item.checked = !item.checked;
             setToBuy([...toBuy, item]);
             setBought(bought.filter(el => el.id !== id));
         }  
