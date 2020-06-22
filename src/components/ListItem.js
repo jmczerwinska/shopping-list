@@ -38,23 +38,25 @@ const ListItem = ({ item, edit}) => {
     };
 
     return (
-            <ListEl
-                layoutTransition={{
-                    type: "spring",
-                    damping: 200,
-                    stiffness: 1500,
-                }}
-                variants={variants}
-                initial="enter"
-                animate="center"
-                exit="exit">
-            <CustomCheckbox
-                checkId={item.id}
+        <ListEl
+            layoutTransition={{
+                type: "spring",
+                damping: 200,
+                stiffness: 1500,
+            }}
+            variants={variants}
+            initial="enter"
+            animate="center"
+            exit="exit">
+
+            <div>
+                <CustomCheckbox
                 onClick={() => handleChange(item)}
                 className="fas fa-check" 
-                checked={item.checked}
-                />
-                 <p>{item.title}</p>
+                checked={item.checked} />
+                <p>{item.title}</p>
+            </div>
+            
             <ButtonGroup>
                 <InvertButton 
                     disabled={edit === 'disabled' ? true : false}
@@ -70,6 +72,7 @@ const ListItem = ({ item, edit}) => {
                     <Icon className="fas fa-trash-alt"></Icon>
                 </InvertButton>
             </ButtonGroup>
+
         </ListEl>
         
     )

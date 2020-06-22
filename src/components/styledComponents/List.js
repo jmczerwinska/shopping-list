@@ -36,11 +36,14 @@ export const ListEl = styled(motion.li)`
   justify-content: space-between;
   align-items: center;
   margin: 0.7em 1.25em;
-
-  &.dragging {
-    opacity: 0;
-  }
   
+  
+  p {
+    display: inline-block;
+    margin: 0.5em;
+    color: ${({ theme }) => theme.text};
+  }
+
   @media screen and (max-device-width: 480px) {
     margin-left: 0;
     margin-right: 0.5em;

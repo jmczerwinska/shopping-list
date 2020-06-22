@@ -18,8 +18,7 @@ export const CustomCheckbox = styled.i.attrs(({ checkId }) => ({
       background-color: ${({ theme }) => theme.primary};  
       & + p {
         color: ${({ theme }) => theme.grey};
-    text-decoration: line-through;
-    
+        text-decoration: line-through;
   }`}
 `;
 
@@ -49,7 +48,12 @@ const Slider = styled.i`
   }
 `;
 
-const toggleLabelStyle = css`
+const Label = styled.label.attrs(({
+  htmlFor: 'checkbox'
+}))`
+  position: relative;
+  margin: 0.5em;
+  display: inline-block;
   position: absolute;
   top: 2px;
   right: 2px;
@@ -65,31 +69,16 @@ const toggleLabelStyle = css`
     top: -2px;
     right: -2px;
   }
+ 
 `;
 
-const Label = styled.label.attrs(({ checkId }) => ({
-  htmlFor: checkId || 'checkbox'
+const Checkbox = styled.input.attrs(({ checkId }) => ({
+  type: 'checkbox',
+  id: checkId || 'checkbox'
 }))`
-  position: relative;
-  margin: 0.5em;
-  display: inline-block;
-  color: ${({ theme })=> theme.text};
+  position: absolute;
+  opacity: 0;
 
-  ${({ toggle }) => toggle && toggleLabelStyle}
-`;
-
-const basicCheckedStyle = css`
-  :checked + ${Label} {
-    color: ${({ theme }) => theme.grey};
-    text-decoration: line-through;
-    ${CustomCheckbox} {
-      color: ${({ theme }) => theme.bg};
-      background-color: ${({ theme }) => theme.primary};    
-    }
-  }
-`;
-
-const toggleCheckedStyle = css`
   :checked + ${Label} {
     ${Slider} {
       transform: translateX(14px); 
@@ -100,18 +89,6 @@ const toggleCheckedStyle = css`
   }
 `;
 
-const Checkbox = styled.input.attrs(({ checkId }) => ({
-  type: 'checkbox',
-  id: checkId || 'checkbox'
-}))`
-  position: absolute;
-  opacity: 0;
-  
-  ${({ basic }) => basic && basicCheckedStyle}
-
-  ${({ toggle }) => toggle && toggleCheckedStyle} 
-`;
-
  export const StyledCheckbox = ({ label, ...props }) => {
   const theme = useContext(ThemeContext);
 
@@ -119,9 +96,7 @@ const Checkbox = styled.input.attrs(({ checkId }) => ({
     <div>
       <Checkbox {...props} />
       <Label {...props}>
-        {props.basic && <CustomCheckbox />}
-        {props.toggle && <Slider className={theme === light ? 'fas fa-sun' : 'fas fa-moon'} />} 
-        {label}
+        <Slider className={theme === light ? 'fas fa-sun' : 'fas fa-moon'} />
       </Label>
     </div>
   )
