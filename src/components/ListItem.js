@@ -1,5 +1,5 @@
-import React, { useContext, useState } from 'react';
-import { ShoppingListContext } from '../context/ShoppingListContext2';
+import React, { useContext } from 'react';
+import { ShoppingListContext } from '../context/ShoppingListContext';
 import { InvertButton, ButtonGroup, Icon, ListEl, CustomCheckbox } from './styledComponents';
 
 const ListItem = ({ item, edit}) => {

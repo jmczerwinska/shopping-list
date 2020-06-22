@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { ShoppingListContext } from '../context/ShoppingListContext2';
+import { ShoppingListContext } from '../context/ShoppingListContext';
 import { Form, Button, Input } from './styledComponents';
 
 

@@ -5,87 +5,90 @@ export const ShoppingListContext = createContext();
 
 function ShoppingListContextProvider({ children }) {
     const sampleList = [
-        { title: 'bread', checked: false, id: '1', filtered: false },
-        { title: 'butter', checked: false, id: '2', filtered: false },
-        { title: 'cheese', checked: false, id: '3', filtered: false }
+        { title: 'bread', checked: false, id: '1' },
+        { title: 'butter', checked: false, id: '2' },
+        { title: 'cheese', checked: false, id: '3' }
     ]
 
     const storage = window.localStorage;
 
-    const initialState = JSON.parse(storage.getItem('list')) || sampleList;
+    const initialState = JSON.parse(storage.getItem('list'));
 
-    const [list, setList] = useState(initialState);
+    const [toBuy, setToBuy] = useState(initialState ? initialState.toBuy : sampleList);
+
+    const [bought, setBought] = useState(initialState ? initialState.bought : [])
 
     const [editedEl, setEditedEl] = useState(null);
 
-    
-
     useEffect(() => {
-        storage.setItem('list', JSON.stringify(list));
-    }, [storage, list]);
+        storage.setItem('list', JSON.stringify({
+            toBuy,
+            bought
+        }));
+    }, [storage, toBuy, bought]);
 
     const addItem = (title) => {
-        setList([{title, checked: false, filtered: false, id: uuid()}, ...list])
+        setToBuy([{title, checked: false, id: uuid()}, ...toBuy])
     }
 
     const removeItem = (id) => {
-        setList(list.filter(item => item.id !== id));
+        const item = findItem(id);
+        item 
+            ? setToBuy(toBuy.filter(item => item.id !== id))
+            : setBought(bought.filter(item => item.id !== id));
     }
 
     const checkItem = (id) => {
-        function check (el) {
-            if (el.id === id) {
-                el.checked = !el.checked;
-                el.filtered = !el.filtered;
-            };
-            return el;
-        }
-
-        function sortByChecked (a, b) {
-            if (a.checked < b.checked) return -1;
-            if (a.checked > b.checked) return 1;
-            return 0;
-        }
-
-        const newList = list
-            .map(el => check(el))
-            .sort((el1, el2) => sortByChecked(el1, el2)); 
-        console.log(newList)
-        
-        setList(newList);
+        let item = findItem(id);
+        if (item !== undefined) {
+            item.checked = !item.checked;
+            setBought([item, ...bought]);
+            setToBuy(toBuy.filter(el=> el.id !== id));   
+        } else {
+            item = bought.find(el => el.id === id);
+            item.checked = !item.checked;
+            setToBuy([...toBuy, item]);
+            setBought(bought.filter(el => el.id !== id));
+        }  
     }
 
     const findItem = (id) => {
-        const item = list.find(el => el.id === id);
-        setEditedEl(item);
+        return toBuy.find(el => el.id === id);
+    }
+
+    const updateEditedEl = (id) => {
+        setEditedEl(findItem(id));
     }
 
     const editItem = (title, id) => {
-        const newList = list.map(el => {
+        const newList = toBuy.map(el => {
             if (el.id === id) el.title = title;
             return el;
         });
-        setList(newList);
+        setToBuy(newList);
         setEditedEl(null);
     }
 
     const clearAll = () => {
-        setList([]);
+        setToBuy([]);
+        setBought([]);
     }
 
     const clearChecked = () => {
-        setList(list.filter(el => el.checked === false));
+        setBought([]);
     }
 
     return (
         <ShoppingListContext.Provider value={{
-            list,
-            setList,
+            toBuy,
+            setToBuy,
+            bought,
             addItem,
             removeItem, 
             checkItem,
             findItem,
             editedEl,
+            updateEditedEl,
             editItem,
             clearChecked,
             clearAll 

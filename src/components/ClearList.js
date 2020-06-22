@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { ShoppingListContext } from '../context/ShoppingListContext2';
+import { ShoppingListContext } from '../context/ShoppingListContext';
 import { Button, ButtonGroup, Footer } from './styledComponents';
 
 const ClearList = () => {
