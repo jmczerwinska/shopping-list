@@ -1,4 +1,4 @@
-import React, { useContext, useState,useEffect } from 'react';
+import React, { useContext } from 'react';
 import styled, { css, ThemeContext } from 'styled-components';
 import { light } from './theme';
 
