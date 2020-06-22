@@ -14,7 +14,7 @@ const ShoppingList = () => {
                 ? (
                     <List>
                         <AnimatePresence initial={false}>
-                            {toBuy.map((item, idx) =>
+                             {toBuy.map((item, idx) =>
                                 <ListItem
                                     key={item.id}
                                     item={item}
@@ -28,7 +28,6 @@ const ShoppingList = () => {
                                     edit="disabled" />
                             )}
                         </AnimatePresence>
-
                     </List>
                 )
                 : (
