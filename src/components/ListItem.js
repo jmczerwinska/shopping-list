@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { ShoppingListContext } from '../context/ShoppingListContext';
 import { InvertButton, ButtonGroup, Icon, ListEl, StyledCheckbox } from './styledComponents';
 
-const ListItem = ({ item, edit, className }) => {
+const ListItem = ({ item, edit }) => {
     const { removeItem, findItem, checkItem } = useContext(ShoppingListContext);
 
     const variants = {
@@ -56,7 +56,7 @@ const ListItem = ({ item, edit, className }) => {
                 basic />
             <ButtonGroup >
                 <InvertButton 
-                    disabled={edit === 'disabled' ? true : false}
+                    disabled={edit ? true : false}
                     onClick={() => findItem(item.id)}
                     icon>
                     <Icon className="fas fa-pencil-alt"></Icon>

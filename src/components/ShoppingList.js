@@ -13,9 +13,8 @@ const ShoppingList = () => {
                 ? (
                     <List>
                         <AnimatePresence initial={false}>
-                            {list.map(item =>  <ListItem key={item.id} item={item}  />)} 
-                        </AnimatePresence>
-                                                      
+                            {list.map(item =>  <ListItem key={item.id} item={item} edit={item.checked} />)} 
+                        </AnimatePresence>                                 
                     </List>
                 )
                 : (
