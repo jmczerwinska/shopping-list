@@ -4,14 +4,13 @@ import { Form, Button, Input } from './styledComponents';
 
 
 const ItemForm = () => {
-    const { addItem, editedEl, editItem, list } = useContext(ShoppingListContext);
+    const { addItem, editedEl, editItem } = useContext(ShoppingListContext);
 
     const [title, setTitle] = useState('');
 
     useEffect(() => {
         if (editedEl !== null) {
             setTitle(editedEl.title);
-            console.log(editedEl)
         } else {
             setTitle('');
         }
@@ -24,7 +23,6 @@ const ItemForm = () => {
             setTitle('');
         } else {
             editItem(title, editedEl.id);
-            console.log(list)
         }
     }
 
