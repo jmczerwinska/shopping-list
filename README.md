@@ -31,11 +31,13 @@ See [DEMO](https://jmczerwinska.github.io/shopping-list/)
 $ git clone https://github.com/jmczerwinska/shopping-list.git
 ```
 <br>
+
 > Install dependencies:
 ```
 $ npm install
 ```
 <br>
+
 > Run the app in development mode:
 ```
 $ npm start
