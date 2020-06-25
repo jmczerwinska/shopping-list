@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { ShoppingListContext } from '../context/ShoppingListContext';
-import { Form, Button, Input } from './styledComponents';
+import { Form, Button, Input } from '../styledComponents';
 
 
 const ItemForm = () => {

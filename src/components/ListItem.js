@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { ShoppingListContext } from '../context/ShoppingListContext';
-import { InvertButton, ButtonGroup, Icon, ListEl, CustomCheckbox } from './styledComponents';
+import { InvertButton, ButtonGroup, Icon, ListEl, CustomCheckbox } from '../styledComponents';
 
 const ListItem = ({ item, edit}) => {
     const { checkItem, removeItem, updateEditedEl } = useContext(ShoppingListContext);
@@ -14,6 +14,7 @@ const ListItem = ({ item, edit}) => {
             y: -20,
             opacity: 0,
             transition: {
+                delay: 0.2,
                 duration: 0.25
             }
         },
@@ -28,11 +29,11 @@ const ListItem = ({ item, edit}) => {
         },
         exit: {
             zIndex: 0,
-            y: 20,
+            y: -10,
             opacity: 0,
             transition: {
                 delay: 0.1,
-                duration: 0.25
+                duration: 0.15,
             }
         }
     };
@@ -41,13 +42,14 @@ const ListItem = ({ item, edit}) => {
         <ListEl
             layoutTransition={{
                 type: "spring",
-                damping: 200,
+                damping: 100,
                 stiffness: 1500,
             }}
             variants={variants}
             initial="enter"
             animate="center"
-            exit="exit">
+            exit="exit"
+            >
 
             <div>
                 <CustomCheckbox
