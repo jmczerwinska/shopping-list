@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppHeader, Icon } from './styledComponents';
+import { AppHeader, Icon } from '../styledComponents';
 
 const Header = () => {
     return (
