@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { motion } from "framer-motion"
 
 export const ListWrapper = styled.div`
   flex-grow: 1;
@@ -33,7 +34,7 @@ export const List = styled.ul`
   }
 `;
 
-export const ListEl = styled.li`
+export const ListEl = styled(motion.li)`
   display: flex;
   justify-content: space-between;
   align-items: center;
