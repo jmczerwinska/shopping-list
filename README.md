@@ -1,30 +1,44 @@
 # Shopping List App
 
-Create shopping list and check bought item!
+This is a simple React shopping list application that provides some basic functions such as:
+ * adding new items to shopping list and editing existing ones,
+ * mark the items that you already have bought,
+ * remove single item, checked items or whole list,
+ * save list in device localStorage.
+
+You can choose one of two available color themes:
+
+<img src="./img/light.png" width="400" height="auto" /> <img src="./img/dark.png" width="400" height="auto" />
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## General Info
-
-This is React web application, that
-
-## Technologies
-
- * React(ContextApi)
- * Local Storage
- * Styled Components
- * Framer Motion
-
-## Screenshots
-
-App is available in two different colors themes.
-
-<img src="./img/dark.png" width="300" height="auto" />
-
 
 ## Live
 
 See [DEMO](https://jmczerwinska.github.io/shopping-list/)
+
+## Technologies
+
+ * React 16.13 (hooks, ContextAPI)
+ * Local Storage
+ * Styled Components 5.1
+ * Framer Motion 1.11
+
+## Installation
+
+> Clone this repo to your local machine using:
+```
+$ git clone https://github.com/jmczerwinska/shopping-list.git
+```
+
+> Install dependencies:
+```
+$ npm install
+```
+
+> Run the app in development mode:
+```
+$ npm start
+```
 
 ## Available Scripts
 
