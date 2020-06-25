@@ -19,8 +19,8 @@ This is React web application, that
 
 App is available in two different colors themes.
 
-![Example screenshot](./img/light.png | width=300)
-![Example screenshot](./img/dark.png)
+<img src="./img/dark.png" width="300" height="auto" />
+
 
 ## Live
 
