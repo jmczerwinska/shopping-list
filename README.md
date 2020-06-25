@@ -4,11 +4,12 @@ This is a simple React shopping list application that provides some basic functi
  * adding new items to shopping list and editing existing ones,
  * mark the items that you already have bought,
  * remove single item, checked items or whole list,
- * save list in device localStorage.
+ * save list into localStorage.
 
 You can choose one of two available color themes:
-
-<img src="./img/light.png" width="400" height="auto" /> <img src="./img/dark.png" width="400" height="auto" />
+| Light | Dark |
+| :---: | :---: |
+|<img src="./img/light.png" width="400" height="auto" /> | <img src="./img/dark.png" width="400" height="auto" /> |
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -29,12 +30,12 @@ See [DEMO](https://jmczerwinska.github.io/shopping-list/)
 ```
 $ git clone https://github.com/jmczerwinska/shopping-list.git
 ```
-
+<br>
 > Install dependencies:
 ```
 $ npm install
 ```
-
+<br>
 > Run the app in development mode:
 ```
 $ npm start
